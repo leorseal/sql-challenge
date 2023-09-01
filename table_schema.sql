@@ -6,6 +6,10 @@ CREATE TABLE titles (
     CONSTRAINT uc_titles_title UNIQUE (title)
 );
 
+-- View the titles table
+Select * 
+From titles
+
 -- Create the departments table
 CREATE TABLE departments (
     dept_no VARCHAR(10) NOT NULL,
@@ -13,6 +17,10 @@ CREATE TABLE departments (
     CONSTRAINT pk_departments PRIMARY KEY (dept_no),
     CONSTRAINT uc_departments_dept_name UNIQUE (dept_name)
 );
+
+-- View the departments table
+Select * 
+From departments
 
 -- Create the employees table
 CREATE TABLE employees (
@@ -26,6 +34,10 @@ CREATE TABLE employees (
     CONSTRAINT pk_employees PRIMARY KEY (emp_no)
 );
 
+-- View the employees table
+Select * 
+From employees
+
 -- Create the salaries table
 CREATE TABLE salaries (
     emp_no VARCHAR NOT NULL,
@@ -33,18 +45,29 @@ CREATE TABLE salaries (
     CONSTRAINT pk_salaries PRIMARY KEY (emp_no)
 );
 
+-- View the salaries table
+Select * 
+From salaries
+
 -- Create the dept_emp table
 CREATE TABLE dept_emp (
-    emp_no INT NOT NULL,
+    emp_no VARCHAR NOT NULL,
     dept_no VARCHAR(10) NOT NULL,
     CONSTRAINT pk_dept_emp PRIMARY KEY (emp_no, dept_no)
 );
 
+-- View the dept_emp table
+Select * 
+From dept_emp
+
 -- Create the dept_manager table
 CREATE TABLE dept_manager (
+    manager_id SERIAL PRIMARY KEY,
     dept_no VARCHAR(10) NOT NULL,
-	dept_emp INT NOT NULL,
-    CONSTRAINT pk_dept_no PRIMARY KEY (dept_no)
+    emp_no VARCHAR NOT NULL
 );
 
+-- View the dept_manager table
+Select * 
+From dept_manager
 
